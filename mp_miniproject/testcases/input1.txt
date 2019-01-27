@@ -1,0 +1,18 @@
+ls
+
+l s
+  ls
+ls -l
+./hello
+./arguments arg1 arg2
+cd nowhere
+cat 2.txt
+cat cat.txt
+cat    cat.txt
+cd ..
+pwd
+cd ./testcases
+cd
+pwd
+exit
+ls

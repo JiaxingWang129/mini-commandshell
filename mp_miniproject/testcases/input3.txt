@@ -1,0 +1,32 @@
+set a 1
+set A 21
+set e_var 5
+$a
+echo $a$A$e_var
+echo \$a
+echo $\a
+echo $.
+set $a b
+echo $1
+env
+export a
+env
+set a.1 b
+set a\  b
+set c 3 3\ 3
+echo $c
+set g
+export g
+env
+set d 4
+echo $a$x$y$d
+echo $a.hello
+env
+set PWD newpwd
+export PWD
+env
+set PATH newpath
+echo $PATH
+export PATH
+env
+ls

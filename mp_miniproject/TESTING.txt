@@ -1,0 +1,406 @@
+Run ./myprogram < testcases/input1.txt
+You will see that:
+1] myShell:/home/cc556/ece551/mp_miniproject$ argu.cpp   cat.txt	     hello	Makefile  myShell.cpp	>output3.txt  re_input	    re_input.txt    re_output2.txt  TESTING.txt
+arguments  commandShell.txt  hello.cpp	   myShell   numerics.txt    README	      re_input.cpp  re_output1.txt  testcases
+Program exited with status 0
+	which is correct because it ls current directory.
+
+2] myShell:/home/cc556/ece551/mp_miniproject$
+	which is correct because just push an "ENTER", nothing will happen.
+
+3]myShell:/home/cc556/ece551/mp_miniproject$ l: command not found
+	which is correct because "l s", it will consider 'l' as an command.
+
+4]myShell:/home/cc556/ece551/mp_miniproject$ argu.cpp   cat.txt			           hello Makefile  myShell.cpp	>output3.txt  re_input	    re_input.txt    re_output2.txt  TESTING.txt
+arguments  commandShell.txt  hello.cpp	   myShell   numerics.txt			   README	         re_input.cpp  re_output1.txt  testcases
+Program exited with status 0
+	which is correct because "  ls" is the same as "ls".
+
+5]myShell:/home/cc556/ece551/mp_miniproject$ total 384
+-rw-rw-r-- 1 cc556 cc556    194 Dec  3 10:02 argu.cpp
+-rwxrwxr-x 1 cc556 cc556  21304 Dec  3 10:19 arguments
+-rw-rw-r-- 1 cc556 cc556     15 Dec  3 10:03 cat.txt
+-rw-rw-r-- 1 cc556 cc556   5686 Nov  9 19:53 commandShell.txt
+-rwxrwxr-x 1 cc556 cc556  21128 Dec  3 10:19 hello
+-rw-rw-r-- 1 cc556 cc556    104 Dec  3 10:02 hello.cpp
+-rw-rw-r-- 1 cc556 cc556    457 Dec  3 10:11 Makefile
+-rwxrwxr-x 1 cc556 cc556 218336 Dec  3 10:19 myShell
+-rw-rw-r-- 1 cc556 cc556  11861 Dec  3 10:18 myShell.cpp
+-rw-rw-r-- 1 cc556 cc556   6802 Nov  9 19:53 numerics.txt
+-rwxrw---- 1 cc556 cc556      7 Dec  3 10:15 >output3.txt
+-rw-rw-r-- 1 cc556 cc556   2389 Nov  9 19:53 README
+-rwxrwxr-x 1 cc556 cc556  45696 Dec  3 10:19 re_input
+-rw-rw-r-- 1 cc556 cc556    162 Dec  3 10:03 re_input.cpp
+-rw-rw-r-- 1 cc556 cc556     31 Dec  3 10:03 re_input.txt
+-rwxrw---- 1 cc556 cc556      7 Dec  3 10:15 re_output1.txt
+-rwxrw---- 1 cc556 cc556     31 Dec  3 10:15 re_output2.txt
+drwxrwxr-x 2 cc556 cc556     78 Dec  3 10:24 testcases
+-rw-rw-r-- 1 cc556 cc556      2 Dec  3 10:24 TESTING.txt
+Program exited with status 0
+	which is correct.
+
+6]myShell:/home/cc556/ece551/mp_miniproject$ Hello.
+Program exited with status 0
+	which is correct.
+
+7]myShell:/home/cc556/ece551/mp_miniproject$ arguments[1]: arg1
+arguments[2]: arg2
+Program exited with status 0
+	correct: the program arguments will print its arguments.
+
+8]myShell:/home/cc556/ece551/mp_miniproject$ cd: No such file or directory
+
+9]myShell:/home/cc556/ece551/mp_miniproject$ /bin/cat: 2.txt: No such file or directory
+Program exited with status 1
+
+10]myShell:/home/cc556/ece551/mp_miniproject$ This is a cat.
+Program exited with status 0
+
+11]myShell:/home/cc556/ece551/mp_miniproject$ This is a cat.
+Program exited with status 0
+
+12]myShell:/home/cc556/ece551/mp_miniproject$
+
+13]myShell:/home/cc556/ece551$ /home/cc556/ece551
+Program exited with status 0
+
+14]myShell:/home/cc556/ece551$ cd: No such file or directory
+
+15]myShell:/home/cc556/ece551$
+
+16]myShell:/home/cc556/ece551$ /home/cc556/ece551
+Program exited with status 0
+
+17]myShell:/home/cc556/ece551$
+
+When you try to execute a non-exist file or go to a non-exist directory, shell will print error.
+When you "cd" to another directory, it will change PWD.
+
+after exit, shell will be closed, no more command will be executed.
+
+
+
+
+
+Run ./myprogram < testcases/input2.txt
+You will see that:
+
+1]myShell:/home/cc556/ece551/mp_miniproject$ argu.cpp   cat.txt	     hello	Makefile  myShell.cpp	>output3.txt  re_input	    re_input.txt    re_output2.txt  TESTING.txt
+arguments  commandShell.txt  hello.cpp	   myShell   numerics.txt    README	      re_input.cpp  re_output1.txt  testcases	        TESTING.txt~
+Program exited with status 0
+
+2]myShell:/home/cc556/ece551/mp_miniproject$ argu.cpp   cat.txt	     hello	Makefile  myShell.cpp	>output3.txt  re_input	    re_input.txt    re_output2.txt  TESTING.txt
+arguments  commandShell.txt  hello.cpp	   myShell   numerics.txt    README	      re_input.cpp  re_output1.txt  testcases	        TESTING.txt~
+Program exited with status 0
+	both of above are correst because "l\s" and "ls\" are equal to "ls". 
+
+3]myShell:/home/cc556/ece551/mp_miniproject$ ls : command not found
+	correct because "ls\ \" equals to "ls ", no such command
+
+4]myShell:/home/cc556/ece551/mp_miniproject$ ls -l: command not found
+	correct because "\" will connect "ls" and " -l", no such command.
+
+5]myShell:/home/cc556/ece551/mp_miniproject$ argu.cpp   cat.txt      hello	Makefile  myShell.cpp	>output3.txt  re_input	    re_input.txt    re_output2.txt  TESTING.txt
+arguments  commandShell.txt  hello.cpp	   myShell   numerics.txt  README	      re_input.cpp  re_output1.txt  testcases	        TESTING.txt~
+Program exited with status 0
+	correct because same as "ls"
+
+6]myShell:/home/cc556/ece551/mp_miniproject$ ./ls: command not found
+	correct because in current directory there is no "ls"
+
+7]myShell:/home/cc556/ece551/mp_miniproject$ This is a cat.
+Program exited with status 0
+	correct because it can ignore "\", treat "\." as ".".
+	
+8]myShell:/home/cc556/ece551/mp_miniproject$ cat cat.txt: command not found
+	because treat "\" connect "cat" and " cat.txt"
+	
+9]myShell:/home/cc556/ece551/mp_miniproject$ arguments[1]: a
+arguments[2]: b
+arguments[3]: 23
+Program exited with status 0
+	correct, ignore the whitespace
+
+10]myShell:/home/cc556/ece551/mp_miniproject$ arguments[1]: a
+arguments[2]: a
+arguments[3]: \a
+arguments[4]:  a
+arguments[5]:  \
+Program exited with status 0
+	correct, successfully handle all "\"
+	
+11]myShell:/home/cc556/ece551/mp_miniproject$ : command not found
+	treat "\" as a blank command, and not found.
+
+12]myShell:/home/cc556/ece551/mp_miniproject$ \
+Program exited with status 0
+	
+13]myShell:/home/cc556/ece551/mp_miniproject$ \
+Program exited with status 0
+
+14]myShell:/home/cc556/ece551/mp_miniproject$ \\
+Program exited with status 0
+
+	They are all correct because '\' can translate the character behind it, e.g. '\\' = '\'
+
+
+
+
+
+
+Run ./myprogram < testcases/input3.txt
+You will see that:
+
+1]myShell:/home/cc556/ece551/mp_miniproject$
+2]myShell:/home/cc556/ece551/mp_miniproject$
+3]myShell:/home/cc556/ece551/mp_miniproject$
+	correct, nothing will happen
+
+4]myShell:/home/cc556/ece551/mp_miniproject$ 1: command not found
+	because already set a=1, translate $a into 1, and take '1' as a command and not found.
+
+5]myShell:/home/cc556/ece551/mp_miniproject$ 1215
+Program exited with status 0
+	valid var name
+
+6]myShell:/home/cc556/ece551/mp_miniproject$ 1
+Program exited with status 0
+7]myShell:/home/cc556/ece551/mp_miniproject$ $a
+Program exited with status 0
+8]myShell:/home/cc556/ece551/mp_miniproject$ $.
+Program exited with status 0
+	translate '\' and '$'
+
+9]myShell:/home/cc556/ece551/mp_miniproject$
+10]myShell:/home/cc556/ece551/mp_miniproject$ b
+Program exited with status 0
+	set $a=b, equals set 1=b, because a has already be set as 1. so echo $1, will print b
+
+11]myShell:/home/cc556/ece551/mp_miniproject$ LC_PAPER=en_US.UTF-8
+XDG_SESSION_ID=32782
+LC_ADDRESS=en_US.UTF-8
+LC_MONETARY=en_US.UTF-8
+TERM=xterm-256color
+SHELL=/bin/bash
+SSH_CLIENT=70.62.108.114 2617 22
+LC_NUMERIC=en_US.UTF-8
+SSH_TTY=/dev/pts/58
+USER=cc556
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+LC_TELEPHONE=en_US.UTF-8
+MAIL=/var/mail/cc556
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+LC_IDENTIFICATION=en_US.UTF-8
+PWD=/home/cc556/ece551/mp_miniproject
+EDITOR=emacs -nw
+LANG=en_US.UTF-8
+LC_MEASUREMENT=en_US.UTF-8
+SHLVL=1
+HOME=/home/cc556
+LOGNAME=cc556
+VISUAL=emacs -nw
+SSH_CONNECTION=70.62.108.114 2617 152.3.77.223 22
+LESSOPEN=| /usr/bin/lesspipe %s
+XDG_RUNTIME_DIR=/run/user/1014
+LESSCLOSE=/usr/bin/lesspipe %s %s
+LC_TIME=en_US.UTF-8
+LC_NAME=en_US.UTF-8
+OLDPWD=/home/cc556/ece551/mp_miniproject/testcases
+_=./myShell
+Program exited with status 0
+	current environ
+
+12]myShell:/home/cc556/ece551/mp_miniproject$
+13]myShell:/home/cc556/ece551/mp_miniproject$ LC_PAPER=en_US.UTF-8
+XDG_SESSION_ID=32782
+LC_ADDRESS=en_US.UTF-8
+LC_MONETARY=en_US.UTF-8
+TERM=xterm-256color
+SHELL=/bin/bash
+SSH_CLIENT=70.62.108.114 2617 22
+LC_NUMERIC=en_US.UTF-8
+SSH_TTY=/dev/pts/58
+USER=cc556
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+LC_TELEPHONE=en_US.UTF-8
+MAIL=/var/mail/cc556
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+LC_IDENTIFICATION=en_US.UTF-8
+PWD=/home/cc556/ece551/mp_miniproject
+EDITOR=emacs -nw
+LANG=en_US.UTF-8
+LC_MEASUREMENT=en_US.UTF-8
+SHLVL=1
+HOME=/home/cc556
+LOGNAME=cc556
+VISUAL=emacs -nw
+SSH_CONNECTION=70.62.108.114 2617 152.3.77.223 22
+LESSOPEN=| /usr/bin/lesspipe %s
+XDG_RUNTIME_DIR=/run/user/1014
+LESSCLOSE=/usr/bin/lesspipe %s %s
+LC_TIME=en_US.UTF-8
+LC_NAME=en_US.UTF-8
+OLDPWD=/home/cc556/ece551/mp_miniproject/testcases
+_=./myShell
+a=1
+Program exited with status 0
+	after exporting, a=1 will appear in environ. But before exporting, there is no a=1 in environ.
+
+14]myShell:/home/cc556/ece551/mp_miniproject$ Invalid var name.
+15]myShell:/home/cc556/ece551/mp_miniproject$ Invalid var name.
+	valid var name can only be number, or letter, or underscore.
+	'a\  b' will translate into 'a b', there is white space which is invalid var name
+
+16]myShell:/home/cc556/ece551/mp_miniproject$
+17]myShell:/home/cc556/ece551/mp_miniproject$ 3 3 3
+Program exited with status 0
+	There can have white space in var varible.
+
+18]myShell:/home/cc556/ece551/mp_miniproject$
+19]myShell:/home/cc556/ece551/mp_miniproject$
+20]myShell:/home/cc556/ece551/mp_miniproject$ LC_PAPER=en_US.UTF-8
+XDG_SESSION_ID=32782
+LC_ADDRESS=en_US.UTF-8
+LC_MONETARY=en_US.UTF-8
+TERM=xterm-256color
+SHELL=/bin/bash
+SSH_CLIENT=70.62.108.114 2617 22
+LC_NUMERIC=en_US.UTF-8
+SSH_TTY=/dev/pts/58
+USER=cc556
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+LC_TELEPHONE=en_US.UTF-8
+MAIL=/var/mail/cc556
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+LC_IDENTIFICATION=en_US.UTF-8
+PWD=/home/cc556/ece551/mp_miniproject
+EDITOR=emacs -nw
+LANG=en_US.UTF-8
+LC_MEASUREMENT=en_US.UTF-8
+SHLVL=1
+HOME=/home/cc556
+LOGNAME=cc556
+VISUAL=emacs -nw
+SSH_CONNECTION=70.62.108.114 2617 152.3.77.223 22
+LESSOPEN=| /usr/bin/lesspipe %s
+XDG_RUNTIME_DIR=/run/user/1014
+LESSCLOSE=/usr/bin/lesspipe %s %s
+LC_TIME=en_US.UTF-8
+LC_NAME=en_US.UTF-8
+OLDPWD=/home/cc556/ece551/mp_miniproject/testcases
+_=./myShell
+a=1
+g=
+Program exited with status 0
+	set a var without varible, it will be set as "" automatically
+
+21]myShell:/home/cc556/ece551/mp_miniproject$
+22]myShell:/home/cc556/ece551/mp_miniproject$ 14
+Program exited with status 0
+23]myShell:/home/cc556/ece551/mp_miniproject$ 1.hello
+Program exited with status 0
+	parse '$' correctlly
+24]myShell:/home/cc556/ece551/mp_miniproject$ LC_PAPER=en_US.UTF-8
+XDG_SESSION_ID=32782
+LC_ADDRESS=en_US.UTF-8
+LC_MONETARY=en_US.UTF-8
+TERM=xterm-256color
+SHELL=/bin/bash
+SSH_CLIENT=70.62.108.114 2617 22
+LC_NUMERIC=en_US.UTF-8
+SSH_TTY=/dev/pts/58
+USER=cc556
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+LC_TELEPHONE=en_US.UTF-8
+MAIL=/var/mail/cc556
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+LC_IDENTIFICATION=en_US.UTF-8
+PWD=/home/cc556/ece551/mp_miniproject
+EDITOR=emacs -nw
+LANG=en_US.UTF-8
+LC_MEASUREMENT=en_US.UTF-8
+SHLVL=1
+HOME=/home/cc556
+LOGNAME=cc556
+VISUAL=emacs -nw
+SSH_CONNECTION=70.62.108.114 2617 152.3.77.223 22
+LESSOPEN=| /usr/bin/lesspipe %s
+XDG_RUNTIME_DIR=/run/user/1014
+LESSCLOSE=/usr/bin/lesspipe %s %s
+LC_TIME=en_US.UTF-8
+LC_NAME=en_US.UTF-8
+OLDPWD=/home/cc556/ece551/mp_miniproject/testcases
+_=./myShell
+a=1
+g=
+Program exited with status 0
+25]myShell:/home/cc556/ece551/mp_miniproject$
+26]myShell:/home/cc556/ece551/mp_miniproject$ myShell:newpwd$ LC_PAPER=en_US.UTF-8
+XDG_SESSION_ID=32782
+LC_ADDRESS=en_US.UTF-8
+LC_MONETARY=en_US.UTF-8
+TERM=xterm-256color
+SHELL=/bin/bash
+SSH_CLIENT=70.62.108.114 2617 22
+LC_NUMERIC=en_US.UTF-8
+SSH_TTY=/dev/pts/58
+USER=cc556
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+LC_TELEPHONE=en_US.UTF-8
+MAIL=/var/mail/cc556
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+LC_IDENTIFICATION=en_US.UTF-8
+PWD=newpwd
+EDITOR=emacs -nw
+LANG=en_US.UTF-8
+LC_MEASUREMENT=en_US.UTF-8
+SHLVL=1
+HOME=/home/cc556
+LOGNAME=cc556
+VISUAL=emacs -nw
+SSH_CONNECTION=70.62.108.114 2617 152.3.77.223 22
+LESSOPEN=| /usr/bin/lesspipe %s
+XDG_RUNTIME_DIR=/run/user/1014
+LESSCLOSE=/usr/bin/lesspipe %s %s
+LC_TIME=en_US.UTF-8
+LC_NAME=en_US.UTF-8
+OLDPWD=/home/cc556/ece551/mp_miniproject/testcases
+_=./myShell
+a=1
+g=
+Program exited with status 0
+27]myShell:newpwd$ myShell:newpwd$ newpath
+Program exited with status 0
+	change PWD, the current PWD can be changed too
+
+28]myShell:newpwd$
+29]myShell:newpwd$ env: command not found
+30]myShell:newpwd$ ls: command not found
+	after changing the PATH, it will affect the path which my shell search for the program. So, ls, env cannot be used anymore.
+
+
+
+
+
+
+Run ./myprogram < testcases/input4.txt
+You will see that:
+
+1]myShell:/home/cc556/ece551/mp_miniproject$ This is redirect.
+That's cool.
+Program exited with status 0
+	the program re_input will getline form cin. '<' will give the content of re_input.txt to re_input as cin.
+
+2]myShell:/home/cc556/ece551/mp_miniproject$ Program exited with status 0
+	The program hello will print Hello. '>' will print the 'Hello.' from ./hello to re_output1.txt
+
+3]myShell:/home/cc556/ece551/mp_miniproject$ Program exited with status 0
+	First, re_input.txt will give its content to re_input as cin, and then re_input will print the result to re_output2.txt, instead of std::cout.
+
+4]myShell:/home/cc556/ece551/mp_miniproject$ No such file.
+Program exited with status 1
+	There is no nothing.txt, so it will print error.
+
+5]myShell:/home/cc556/ece551/mp_miniproject$ Program exited with status 0
+	It will ignore the a.txt, and print hello to the ">output3.txt", because of the '\', the '>' won't be treated as redirector.
+

@@ -1,0 +1,14 @@
+l\s
+ls\
+ls\ \
+ls\ -l
+/bin/ls
+./ls
+cat cat\.txt
+cat\ cat.txt
+./arguments     a         b  23
+./arguments a \a \\a \ a \ \\
+\
+echo \\
+echo \\\
+echo \\\\

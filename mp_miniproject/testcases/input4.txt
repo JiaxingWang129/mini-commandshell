@@ -1,0 +1,5 @@
+./re_input < re_input.txt
+./hello > re_output1.txt
+./re_input<re_input.txt>re_output2.txt
+./re_input<nothing.txt
+./hello >a.txt> \>output3.txt
